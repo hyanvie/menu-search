@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>菜单搜索器 | Menu Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 顶部标题区 -->
+  <header class="header">
+    <h1>🍽️ 菜单搜索器</h1>
+    <p class="subtitle">输入关键词，快速找到你想吃的菜</p>
+  </header>
+
+  <main class="container">
+
+    <!-- 搜索框 -->
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="搜索菜品名称，例如：宫保鸡丁"
+      />
+    </div>
+
+    <!-- 分类筛选按钮，data-category 对应 script.js 中的 category 字段 -->
+    <div class="category-bar" id="categoryBar">
+      <button class="category-btn active" data-category="全部">全部</button>
+      <button class="category-btn" data-category="主食">主食</button>
+      <button class="category-btn" data-category="小吃">小吃</button>
+      <button class="category-btn" data-category="饮品">饮品</button>
+      <button class="category-btn" data-category="甜点">甜点</button>
+      <button class="category-btn favorite-filter-btn" data-category="收藏">🤍 我的收藏</button>
+    </div>
+
+    <!-- 结果数量提示 -->
+    <p class="result-count" id="resultCount"></p>
+
+    <!-- 菜单卡片将由 JS 动态渲染到这里 -->
+    <div class="menu-grid" id="menuGrid"></div>
+
+    <!-- 无结果时显示 -->
+    <p class="empty-tip" id="emptyTip" hidden>没有找到相关菜品，换个关键词试试吧～</p>
+
+  </main>
+
+  <!-- 菜品详情弹窗，默认隐藏（通过 .show 类控制显示），内容由 script.js 动态填充 -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Web开发技术 · 课后作业 · 菜单搜索器</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
